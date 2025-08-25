@@ -1,59 +1,153 @@
-# Frontend
+# Sistema de Policiais
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.15.
+Este projeto é composto por um **backend** em NestJS + TypeORM + MySQL e um **frontend** em Angular. O sistema permite o cadastro, listagem, edição e exclusão de policiais.
 
-## Development server
+## Estrutura de Pastas
 
-To start a local development server, run:
-
-```bash
-ng serve
+```
+readme.md
+backend/
+  .env
+  .gitignore
+  .prettierrc
+  eslint.config.mjs
+  nest-cli.json
+  package.json
+  README.md
+  tsconfig.build.json
+  tsconfig.json
+  src/
+    app.controller.spec.ts
+    app.controller.ts
+    app.module.ts
+    app.service.ts
+    main.ts
+    policiais.http
+    policiais/
+      dto/
+        create-policiais.dto.ts
+        update-policiais.dto.ts
+      entities/
+        policiais.entity.ts
+      policiais.controller.spec.ts
+      policiais.controller.ts
+      policiais.module.ts
+      policiais.service.spec.ts
+      policiais.service.ts
+  test/
+    app.e2e-spec.ts
+    jest-e2e.json
+frontend/
+  .editorconfig
+  .gitignore
+  angular.json
+  package.json
+  README.md
+  tsconfig.app.json
+  tsconfig.json
+  tsconfig.spec.json
+  .angular/
+    cache/
+  .vscode/
+    tasks.json
+    launch.json
+    extensions.json
+  public/
+    ...
+  src/
+    index.html
+    styles.css
+    main.ts
+    main.server.ts
+    server.ts
+    app/
+      app.component.ts
+      app.component.html
+      app.component.css
+      app.component.spec.ts
+      app.config.ts
+      app.config.server.ts
+      app.routes.ts
+      app.routes.server.ts
+      models/
+        policial.interface.ts
+      services/
+        crud-policial.service.ts
+        crud-policial.service.spec.ts
+      components/
+        home/
+          home.component.ts
+          home.component.html
+          home.component.css
+          home.component.spec.ts
+        cadastrar/
+          cadastrar.component.ts
+          cadastrar.component.html
+          cadastrar.component.css
+          cadastrar.component.spec.ts
+        listar/
+          listar.component.ts
+          listar.component.html
+          listar.component.css
+          listar.component.spec.ts
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Tecnologias Utilizadas
 
-## Code scaffolding
+- **Backend:** NestJS, TypeORM, MySQL, class-validator
+- **Frontend:** Angular 19, RxJS, Express (SSR)
+- **Testes:** Jest (backend), Karma/Jasmine (frontend)
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Como Executar
 
-```bash
-ng generate component component-name
-```
+### Backend
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+1. Instale as dependências:
+   ```bash
+   cd backend
+   npm install
+   ```
+2. Configure o arquivo `.env` com suas credenciais do banco de dados MySQL.
+3. Inicie o servidor:
+   ```bash
+   npm run start:dev
+   ```
+   O backend estará disponível em `http://localhost:3000`.
 
-```bash
-ng generate --help
-```
+### Frontend
 
-## Building
+1. Instale as dependências:
+   ```bash
+   cd frontend
+   npm install
+   ```
+2. Inicie o servidor de desenvolvimento:
+   ```bash
+   npm start
+   ```
+   O frontend estará disponível em `http://localhost:4200`.
 
-To build the project run:
+## Funcionalidades
 
-```bash
-ng build
-```
+- Cadastro de policiais
+- Listagem de policiais
+- Edição de dados de policiais
+- Exclusão de policiais
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Testes
 
-## Running unit tests
+- **Backend:**  
+  Execute os testes com:
+  ```bash
+  npm run test
+  ```
+- **Frontend:**  
+  Execute os testes com:
+  ```bash
+  npm run test
+  ```
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## Observações
 
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Certifique-se de que o backend esteja rodando antes de utilizar o frontend.
+- O frontend consome a API REST do backend
